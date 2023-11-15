@@ -156,6 +156,13 @@ resource "aws_security_group" "omega_backend_sg" {
     protocol    = "tcp"
     cidr_blocks = var.allowed_cidr_blocks_ssh
   }
+ ingress {
+    description = "Allow SSH from my computer"
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = var.allowed_cidr_blocks_ssh
+  }
 
   egress {
     description = "Allow all outbound traffic"
